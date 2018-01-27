@@ -1,5 +1,5 @@
-#ifndef INC_2048PP_INC_RANDOM_HPP
-#define INC_2048PP_INC_RANDOM_HPP
+#ifndef RAND_HPP
+#define RAND_HPP
 
 #include <random>
 
@@ -13,4 +13,4 @@ private:
 	std::mt19937 engine{std::random_device{}()};
 };
 
-#endif //INC_2048PP_INC_RANDOM_HPP
+#endif //RAND_HPP

@@ -1,4 +1,4 @@
-#include "random.hpp"
+#include "../include/rand.hpp"
 
 int Random::operator()(int min, int max) {
 	return std::uniform_int_distribution<int>{min, max}(engine);
