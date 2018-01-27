@@ -1,4 +1,4 @@
-#include "init.hpp"
+#include "../include/init.hpp"
 
 Random randomize;
 std::array<int, Antenne> nb_user;
@@ -37,7 +37,7 @@ int pop_G()
    return 0;
 }
 //@param : BBU1 nombre d'antennes dans le premier BBU (le reste dans le deux)
-int pop_Y(int BBU1) 
+int pop_Y(int BBU1)
 {
   for(int i=0;i<BBU;i++){ //initialisation de la matrice à 0
     for(int j=0;j<Antenne;j++){
@@ -60,6 +60,12 @@ int pop_Y(int BBU1)
   }
   return 0;
 }
+
+//Renvoie 1 si l'antenne appartient au BBU, 0 sinon
+int in(int nRRH,int nBBU){
+  return Y[nBBU-1][nRRH-1]==1;
+}
+
 int sim(int RRH)
 {
 

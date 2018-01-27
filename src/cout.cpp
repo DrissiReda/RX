@@ -1,21 +1,16 @@
-#include "cout.hpp"
+#include "../include/cout.hpp"
 
 //Calcul du cout d'un RRH
-int cout(int nRRH){
+float cout(int nRRH){
   float sum=0.0;
   int yib;
   for(int i=0;i<BBU;i++){
-    yib=in(nRRH,i);
+    yib=in(nRRH,i+1);
     if(yib)
-    	sum += yib * (sub_sumA(i) + (1-Alpha) * sub_sumB(nRRH,i));
+    	sum += yib * (sub_sumA(i+1) + (1-Alpha) * sub_sumB(nRRH,i+1));
   }
   std::cout << "Cout: " << sum << std::endl;
   return sum;
-}
-
-//Renvoie 1 si l'antenne appartient au BBU, 0 sinon
-int in(int nRRH,int nBBU){
-  return Y[nBBU][nRRH-1]==1;
 }
 
 //Somme yjb * nj
