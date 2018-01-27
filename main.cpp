@@ -1,9 +1,9 @@
-#include "cout.hpp"
+#include "simulate.hpp"
 
 int main()
 {
-  pop_Y(2);
   init_all();
-  cout(3);
+  full_sim();
+  disp_res();
   return 0;
 }

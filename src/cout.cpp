@@ -1,7 +1,7 @@
 #include "cout.hpp"
 
 //Calcul du cout d'un RRH
-int cout(int nRRH){
+float cout(int nRRH){
   float sum=0.0;
   int yib;
   for(int i=0;i<BBU;i++){
@@ -9,7 +9,6 @@ int cout(int nRRH){
     if(yib)
     	sum += yib * (sub_sumA(i) + (1-Alpha) * sub_sumB(nRRH,i));
   }
-  std::cout << "Cout: " << sum << std::endl;
   return sum;
 }
 
@@ -35,4 +34,26 @@ float sub_sumB(int nRRH,int nBBU){
       sum += G[nRRH-1][i] * (1-in(i+1,nBBU)) + 0.01;
   }
   return sum;
+}
+//calcul du cout total
+float cout_total()
+{
+	float res=0.0;
+	for(int i=0;i<Antenne;i++)
+		res+=cout(i);
+	return res;
+}
+
+//calcul du cost moyen pour un certain RRH 
+float cout_moyen()
+{
+	
+	float res=0.0;
+	for(int i=0;i<NBSIM;i++)
+	{
+		//on génère une nouvelle matrice G à chaque fois 
+		pop_G();
+		res+=cout_total();
+	}
+	return res/20;
 }

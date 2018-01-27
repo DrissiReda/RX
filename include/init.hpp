@@ -14,7 +14,7 @@ extern std::array<int, Antenne> nb_user;
 extern std::array< std::array<int, Antenne>, Antenne > G;
 extern std::array< std::array<int, Antenne>, BBU > Y;
 extern float Cost;
-
+extern std::vector<float> Resultat;
 int init_all();
 int pop_nbu(int, int);
 int pop_G();
