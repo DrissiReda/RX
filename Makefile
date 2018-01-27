@@ -1,3 +1,3 @@
 default :
-	g++ *.cpp -o sim
+	g++ *.cpp -std=c++11 -o sim
 
