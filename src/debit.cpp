@@ -1,4 +1,4 @@
-#include "../include/debit.hpp"
+#include "debit.hpp"
 
 //Calcul du debit d'un BBU
 float debit(int nBBU){
