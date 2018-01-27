@@ -17,6 +17,6 @@ extern float Cost;
 int init_all();
 int pop_nbu(int, int);
 int pop_G();
-int pop_Y();
+int pop_Y(int);
 
 #endif //INIT_HPP
