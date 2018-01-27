@@ -34,7 +34,7 @@ float sub_sumG(int nBBU){
 float debit_total()
 {
 	float res=0.0;
-	for(int i=0;i<Antenne;i++)
+	for(int i=1;i<=BBU;i++)
 		res+=debit(i);
 	return res;
 }
