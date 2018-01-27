@@ -1,11 +1,11 @@
 #include "../include/init.hpp"
 
 Random randomize;
-std::array<int, Antenne> nb_user;
-std::array< std::array<int, Antenne>, Antenne > G;
-std::array< std::array<int, Antenne>, BBU > Y;
+std::array<int, Antenne> nb_user; // nombre d'utilisateur par antenne
+std::array< std::array<int, Antenne>, Antenne > G;// la matrice G
+std::array< std::array<int, Antenne>, BBU > Y; // la matrice qui informe quel RRH est dans quel BBU
 float Cost=0.0;
-
+std::vector<float> Resultat; //stock les resultats des simulations
 
 int init_all()
 {
@@ -50,13 +50,6 @@ int pop_Y(int BBU1)
       Y[0][i]=1;
     else
       Y[1][i]=1;
-  }
-
-  for(int i=0;i<BBU;i++){ //affichage test
-    for(int j=0;j<Antenne;j++){
-      std::cout << Y[i][j] << " ";
-    }
-    std::cout << std::endl;
   }
   return 0;
 }
