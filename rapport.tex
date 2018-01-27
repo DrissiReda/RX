@@ -16,6 +16,23 @@
 \tableofcontents
 \clearpage
 \section{Introduction}
+Pour simuler tous les cas nous avons cherché les cas possibles :
+\begin{itemize}
+	\item 1 RRH dans le premier BBU, 5 RRH dans le deuxième BBU
+	\item 2 RRH dans le premier BBU, 4 RRH dans le deuxième BBU
+	\item 3 RRH dans le premier BBU, 3 RRH dans le deuxième BBU
+	\item 4 RRH dans le premier BBU, 2 RRH dans le deuxième BBU
+	\item 5 RRH dans le premier BBU, 1 RRH dans le deuxième BBU
+\end{itemize}
+Les deux derniers cas sont symètriques donc inutile de les calculer, puisque nos BBU jouent
+le même rôle (au moins dans cette simulation).\\
+Nous avons créé des fonctions pour remplir les différentes matrices.
+\begin{itemize}
+	\item \textbf{Matrice G} : Matrice symètrique, diagonal nulle, et valeurs aléatoires entre 1 et 4
+	\item \textbf{Matrice Y} : Matrice remplie avec la fonction \textit{pop\_Y(int BBU1)}
+		le paramètre BBU1 représente le nombre de RRH dans le premier BBU, donc on peut
+		calculer le nombre de RRH dans le deuxième.
+\end{itemize}
 \section{Formules}
 \subsection{Coût}
 \subsubsection{Original}
