@@ -3,6 +3,7 @@
 
 #define Antenne 6
 #define BBU     2
+#define Alpha   0.5
 #include <array>
 #include <algorithm>
 #include <iostream>
