@@ -38,11 +38,20 @@ Nous avons créé des fonctions pour remplir les différentes matrices.
 \subsection{Coût}
 \subsubsection{Original}
 \begin{displaymath}
-C(y_i)= \sum_{b=1}^By_{ib}.\left(\alpha.\sum_{j=1}^Ry_{jb}.n_j+(1-\alpha).(\sum_{j\neq i}G_{ji}.(1-y_{jb})+N_0)\right)
+C(y_i)= \sum\limits_{b=1}^By_{ib}.\left(\alpha.\sum\limits_{j=1}^Ry_{jb}.n_j+(1-\alpha).(\sum\limits_{j\neq i}G_{ji}.(1-y_{jb})+N_0)\right)
 \end{displaymath}
 \subsubsection{Sur le code}
 \begin{displaymath}
-C(y_i)= \sum_{b=1}^By_{ib}.(\alpha.A_b+(1-\alpha).B_b)
+C(y_i)= \sum\limits_{b=1}^By_{ib}.(\alpha.A_b+(1-\alpha).B_b)
+\end{displaymath}
+\subsection{Débit}
+\subsubsection{Original}
+\begin{displaymath}
+D(y,G)=W.\sum\limits_{i=1}^Ry_{ib}.\frac{log_2\left(1+\sum\limits_{j \neq i}^RG_{ji}.(1-y_{jb})\right)}{\sum\limits_{j=1}^Ry_{jb}.n_j}
+\end{displaymath}
+\subsubsection{Sur le code}
+\begin{displaymath}
+D(y,G)=W.\sum\limits_{i=1}^Ry_{ib}.\frac{log_2(1+F_b)}{G_b}
 \end{displaymath}
 \section{Algorithme}
 \subsection{Coût}

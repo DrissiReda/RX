@@ -9,7 +9,7 @@ float debit(int nBBU){
     if(yib)
     	sum += yib * ( (log(1+sub_sumF(nBBU,i+1))/log(2)) / sub_sumG(nBBU) );
   }
-  return sum;
+  return W*sum;
 }
 
 //Somme Gji (1 - yjb) , j!=i

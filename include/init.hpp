@@ -5,7 +5,7 @@
 #define BBU     2
 #define Alpha   0.5
 #define NBSIM   20
-#define W	    5
+#define W	    10
 
 
 #include <array>
