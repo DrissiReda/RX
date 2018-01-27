@@ -1,5 +1,6 @@
 #include "../include/debit.hpp"
 
+//Calcul du debit d'un BBU
 float debit(int nBBU){
   float sum=0.0;
   int yib;
@@ -8,12 +9,8 @@ float debit(int nBBU){
     if(yib)
     	sum += yib * ( (log(1+sub_sumA(nBBU,i+1))/log(2)) / sub_sumB(nBBU) );
   }
-  std::cout << "Debit: " << sum << std::endl;
   return sum;
 }
-
-//Renvoie 1 si l'antenne appartient au BBU, 0 sinon
-
 
 //Somme Gji (1 - yjb) , j!=i
 float sub_sumA(int nBBU,int nRRH){
