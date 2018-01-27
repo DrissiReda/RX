@@ -46,6 +46,17 @@ C(y_i)= \sum_{b=1}^By_{ib}.(\alpha.A_b+(1-\alpha).B_b)
 \end{displaymath}
 \section{Algorithme}
 \subsection{Coût}
-Pour calculer le coût total moyen il faut d'abord lancer la fonction \textit{init()} 
-qui va initialiser 
+Pour calculer le coût total moyen :
+\begin{enumerate}
+\item Il faut d'abord lancer la fonction \textit{init()} pour initialiser le nombre d'utilisateurs par RRH.
+\item Ensuite la fonction \textit{cout(int nRRH)} calcule le coût en utilisant $A_b$ et 
+$B_b$ pour le RRH numéro \textbf{nRRH}.
+\item La fonction \textit{cout\_total()} calcule le coût total de toutes les RRH en utilisant la fonction \textit{cout(int nRRH)}.
+\item La fonction \textit{cout\_moyen()} calcule le coût moyen de 20 cas différent, en changeant la matrice G à chaque fois à l'aide de \textit{pop\_G()}.
+\item La fonction \textit{simulate(int BBU1)} ensuite calcule le coût moyen du cas avec \textbf{BBU1} de RRH dans le $1^{er}$ BBU et 6-\textbf{BBU1} RRH dans le $2^{eme}$ BBU
+en changeant à chaque fois la matrice Y à l'aide de \textit{pop\_Y(int BBU1)}.
+\item Finalement \textit{full\_sim()} effectue les simulations pour chaque cas et stock 
+les résultats dans le vecteur \textbf{Resultat}.
+\item Les résultats sont interprétés par la fonction \textit{disp\_res()}.
+\end{enumerate} 
 \end{document}
