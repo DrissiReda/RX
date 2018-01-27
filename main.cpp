@@ -2,4 +2,6 @@
 
 int main()
 {
+  pop_Y();
+  return 0;
 }
