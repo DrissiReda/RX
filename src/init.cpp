@@ -1,4 +1,4 @@
-#include "../include/init.hpp"
+#include "init.hpp"
 
 Random randomize;
 std::array<int, Antenne> nb_user; // nombre d'utilisateur par antenne
@@ -7,10 +7,9 @@ std::array< std::array<int, Antenne>, BBU > Y; // la matrice qui informe quel RR
 float Cost=0.0;
 std::vector<float> Resultat; //stock les resultats des simulations
 
-int init_all()
+int init()
 {
    	pop_nbu(1,5);
-    pop_G();
 	return 0;
 }
 int pop_nbu (int min, int max)

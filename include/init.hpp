@@ -8,14 +8,15 @@
 #include <algorithm>
 #include <iostream>
 #include "rand.hpp"
-
+//////////////variables globales
 extern Random randomize;
 extern std::array<int, Antenne> nb_user;
 extern std::array< std::array<int, Antenne>, Antenne > G;
 extern std::array< std::array<int, Antenne>, BBU > Y;
 extern float Cost;
 extern std::vector<float> Resultat;
-int init_all();
+////////////fonctions/////////////////////////////
+int init();
 int pop_nbu(int, int);
 int pop_G();
 int pop_Y(int);

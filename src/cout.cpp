@@ -1,4 +1,4 @@
-#include "../include/cout.hpp"
+#include "cout.hpp"
 
 //Calcul du cout d'un RRH
 float cout(int nRRH){

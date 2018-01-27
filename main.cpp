@@ -2,7 +2,7 @@
 
 int main()
 {
-  init_all();
+  init();
   full_sim();
   disp_res();
   return 0;
