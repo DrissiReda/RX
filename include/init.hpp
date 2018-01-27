@@ -4,6 +4,10 @@
 #define Antenne 6
 #define BBU     2
 #define Alpha   0.5
+#define NBSIM   20
+#define W	    5
+
+
 #include <array>
 #include <algorithm>
 #include <iostream>
@@ -14,7 +18,8 @@ extern std::array<int, Antenne> nb_user;
 extern std::array< std::array<int, Antenne>, Antenne > G;
 extern std::array< std::array<int, Antenne>, BBU > Y;
 extern float Cost;
-extern std::vector<float> Resultat;
+extern std::vector<float> Resultat_C;
+extern std::vector<float> Resultat_D;
 ////////////fonctions/////////////////////////////
 int init();
 int pop_nbu(int, int);

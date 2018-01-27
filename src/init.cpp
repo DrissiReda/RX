@@ -5,10 +5,12 @@ std::array<int, Antenne> nb_user; // nombre d'utilisateur par antenne
 std::array< std::array<int, Antenne>, Antenne > G;// la matrice G
 std::array< std::array<int, Antenne>, BBU > Y; // la matrice qui informe quel RRH est dans quel BBU
 float Cost=0.0;
-std::vector<float> Resultat; //stock les resultats des simulations
-
+std::vector<float> Resultat_C; //stock les resultats des simulations cout
+std::vector<float> Resultat_D; //stock les resultats des simulations debit
 int init()
 {
+	Resultat_C.clear();
+	Resultat_D.clear();
    	pop_nbu(1,5);
 	return 0;
 }
