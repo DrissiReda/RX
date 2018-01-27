@@ -2,7 +2,7 @@
 
 Random randomize;
 std::array<int, Antenne> nb_user;
-std::array< std::array<int, Antenne>, BBU > G;
+std::array< std::array<int, Antenne>, Antenne > G;
 float Cost=0.0;
 
 
@@ -20,8 +20,8 @@ int pop_nbu (int min, int max)
 }
 int pop_G()
 {
-    for(int a=0;a<BBU;a++)
-        for(int b=0;b<Antenne;b++)
+    for(int a=0;a<Antenne;a++)
+        for(int b=a;b<Antenne;b++)
         {
             if(a==b) 
             {
