@@ -38,7 +38,7 @@ int pop_G()
 }
 int pop_Y()
 {
-  for(int i=0;i<BUU;i++){
+  for(int i=0;i<BBU;i++){
     for(int j=0;j<Antenne;j++){
       Y[i][j]=0;
     }
@@ -47,13 +47,14 @@ int pop_Y()
     int b = randomize(1,BBU);
     Y[b-1][i]=1;
   }
-  for(int i=0;i<BUU;i++){
+  for(int i=0;i<BBU;i++){
     for(int j=0;j<Antenne;j++){
       std::cout << Y[i][j] << " ";
       //printf("%d ",);
     }
-    std::endl;
+    std::cout << std::endl;
   }
+  return 0;
 }
 int sim(int RRH)
 {

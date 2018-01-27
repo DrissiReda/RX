@@ -10,7 +10,7 @@
 
 extern Random randomize;
 extern std::array<int, Antenne> nb_user;
-extern std::array< std::array<int, Antenne>, BBU > G;
+extern std::array< std::array<int, Antenne>, Antenne > G;
 extern std::array< std::array<int, Antenne>, BBU > Y;
 extern float Cost;
 

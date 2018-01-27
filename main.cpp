@@ -3,5 +3,6 @@
 int main()
 {
   pop_Y();
+  init_all();
   return 0;
 }
