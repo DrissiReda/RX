@@ -1,4 +1,4 @@
-#include "include/cout.hpp"
+#include "cout.hpp"
 
 int main()
 {

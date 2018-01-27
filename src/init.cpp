@@ -1,4 +1,4 @@
-#include "../include/init.hpp"
+#include "init.hpp"
 
 Random randomize;
 std::array<int, Antenne> nb_user;
