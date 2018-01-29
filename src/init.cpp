@@ -4,11 +4,15 @@ Random randomize;
 std::array<int, Antenne> nb_user; // nombre d'utilisateur par antenne
 std::array< std::array<int, Antenne>, Antenne > G;// la matrice G
 std::array< std::array<int, Antenne>, BBU > Y; // la matrice qui informe quel RRH est dans quel BBU
+std::array< std::array<int, Antenne>, BBU > best_Y; // la matrice qui stock la meilleure config
 float Cost=0.0;
 std::vector<float> Resultat_C; //stock les resultats des simulations cout
 std::vector<float> Resultat_D; //stock les resultats des simulations debit
+int BBU1; //nombre d'antenne dans le 1er BBU
 int init()
 {
+	BBU1=1;
+	init_Y();
 	Resultat_C.clear();
 	Resultat_D.clear();
    	pop_nbu(1,5);
@@ -37,24 +41,49 @@ int pop_G()
         }
    return 0;
 }
-//@param : BBU1 nombre d'antennes dans le premier BBU (le reste dans le deux)
-int pop_Y(int BBU1)
+//initialise la matrice Y a 0
+int init_Y()
 {
-  for(int i=0;i<BBU;i++){ //initialisation de la matrice à 0
-    for(int j=0;j<Antenne;j++){
-      Y[i][j]=0;
-    }
+	//initialise la generation de combination a chaque 
+	//changement de BBU1
+	new_comb(BBU1);
+  	pop_Y_2();
+}
+//@param : BBU1 nombre d'antennes dans le premier BBU (le reste dans le deux)
+int pop_Y()
+{
+  //remplir la deuxieme ligne
+  //test disp
+  for (int i = 0; i < Antenne; ++i)
+  {
+    std::cout << Y[0][i] << " ";
   }
-
-  for(int i=0;i<Antenne;i++){ //attribue les antennes aux BBU selon le paramètre
-    if(i<BBU1)
-      Y[0][i]=1;
-    else
-      Y[1][i]=1;
+  std::cout << "\n";
+  //s'il ne reste aucune combination possible avec BBU1 d'antennes dans le 1er BBU
+  //il faut l'incrementer de 1 (la premiere execution renvoie toujours faux 
+  // car toutes les valeurs de Y sont a 0
+  if(!std::prev_permutation(Y[0].begin(), Y[0].begin()+Antenne))
+  {
+  	//il faut creer une autre suite de combination quand BBU1 change
+  	init_Y();
+  	new_comb(++BBU1);
   }
+  //s'il reste des combinations, changer la deuxieme ligne de Y
+  else
+  	pop_Y_2();
   return 0;
 }
-
+int pop_Y_2()
+{
+	for(int i=0;i<Antenne;i++)
+		Y[1][i]=!Y[0][i];
+	return 0;
+}
+int new_comb(int r)
+{
+  std::fill(Y[0].begin(),Y[0].begin()+r, true);
+  return 0;
+}
 //Renvoie 1 si l'antenne appartient au BBU, 0 sinon
 int in(int nRRH,int nBBU){
   return Y[nBBU-1][nRRH-1]==1;

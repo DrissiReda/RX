@@ -3,33 +3,53 @@
 
 //simule le cas où le 1er BBU a BBU1 antenne et le deuxième 6-BBU1
 //cout
-int simulate_cout(int BBU1)
+int simulate_cout()
 {
 	//on remplit la matrice Y selon le cas
-	pop_Y(BBU1); 
+	pop_Y(); 
 	// calcul le cout moyen pour ce cas et le stock dans le vecteur resultat
 	Resultat_C.push_back(cout_moyen());  
+	save_best_Y(Resultat_C,'C');
 }
 //debit
-int simulate_debit(int BBU1)
+int simulate_debit()
 {
 	//on remplit la matrice Y selon le cas
-	pop_Y(BBU1); 
+	pop_Y(); 
 	// calcul le debit moyen pour ce cas et le stock dans le vecteur resultat
-	Resultat_D.push_back(debit_moyen());  
+	Resultat_D.push_back(debit_moyen());
+	save_best_Y(Resultat_D,'D');  
+}
+int save_best_Y(std::array< std::vector<float> A, char val)
+{
+	if(A.size()<2)
+	{
+		best_Y=Y;
+	}
+	switch(val)
+	{
+		case 'C' : 	
+			if(A.back() < *(A.end()-2))
+				best_Y=Y;
+			break;
+		case 'D' :
+			if(A.back() > *(A.end()-2))
+				best_Y=Y;
+			break;
+	}
 }
 //Simule tous les cas et stock le resultat dans le vecteur approprie
 //cout
 int full_sim_cout()
 {
-	for(int i=1;i<4;i++)
-		simulate_cout(i);
+	while(BBU1<4)
+		simulate_cout();
 }
 //debit
 int full_sim_debit()
 {
-	for(int i=1;i<4;i++)
-		simulate_debit(i);
+	while(BBU1<4)
+		simulate_debit();
 }
 //affichage resultat
 
