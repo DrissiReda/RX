@@ -52,13 +52,6 @@ int init_Y()
 //@param : BBU1 nombre d'antennes dans le premier BBU (le reste dans le deux)
 int pop_Y()
 {
-  //remplir la deuxieme ligne
-  //test disp
-  for (int i = 0; i < Antenne; ++i)
-  {
-    std::cout << Y[0][i] << " ";
-  }
-  std::cout << "\n";
   //s'il ne reste aucune combination possible avec BBU1 d'antennes dans le 1er BBU
   //il faut l'incrementer de 1 (la premiere execution renvoie toujours faux 
   // car toutes les valeurs de Y sont a 0

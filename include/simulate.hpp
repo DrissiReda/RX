@@ -13,5 +13,5 @@ int simulate_debit();
 int full_sim_debit();
 int disp_res_debit();
 
-int save_best_Y(std::array< std::vector<float> A, char val);
+int save_best_Y(std::vector<float> A, char val);
 #endif //SIM_HPP
