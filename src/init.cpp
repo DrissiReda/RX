@@ -11,7 +11,7 @@ std::vector<float> Resultat_D; //stock les resultats des simulations debit
 int BBU1; //nombre d'antenne dans le 1er BBU
 int init()
 {
-	BBU1=1;
+	empty_Y();
 	init_Y();
 	Resultat_C.clear();
 	Resultat_D.clear();
@@ -59,7 +59,9 @@ int pop_Y()
   {
   	//il faut creer une autre suite de combination quand BBU1 change
   	init_Y();
-  	new_comb(++BBU1);
+  	BBU1++;
+  	if(BBU1<4)
+  		new_comb(BBU1);
   }
   //s'il reste des combinations, changer la deuxieme ligne de Y
   else
@@ -69,7 +71,7 @@ int pop_Y()
 int pop_Y_2()
 {
 	for(int i=0;i<Antenne;i++)
-		Y[1][i]=!Y[0][i];
+		Y[1][i]=(Y[0][i]==0)?1:0;
 	return 0;
 }
 int new_comb(int r)
@@ -82,8 +84,9 @@ int in(int nRRH,int nBBU){
   return Y[nBBU-1][nRRH-1]==1;
 }
 
-int sim(int RRH)
+int empty_Y()
 {
-
-	return 0;
+	BBU1=0;
+	std::fill(Y[0].begin(),Y[0].begin()+Antenne, false);
+	std::fill(Y[1].begin(),Y[1].begin()+Antenne, true);
 }

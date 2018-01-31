@@ -24,6 +24,7 @@ extern std::vector<float> Resultat_D;
 extern int BBU1;
 ////////////fonctions/////////////////////////////
 int init();
+int empty_Y();
 int init_Y();
 int pop_nbu(int, int);
 int pop_G();

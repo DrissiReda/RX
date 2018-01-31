@@ -3,22 +3,24 @@
 
 //simule le cas où le 1er BBU a BBU1 antenne et le deuxième 6-BBU1
 //cout
-int simulate_cout()
+float simulate_cout()
 {
 	//on remplit la matrice Y selon le cas
 	pop_Y(); 
 	// calcul le cout moyen pour ce cas et le stock dans le vecteur resultat
 	Resultat_C.push_back(cout_moyen());  
 	save_best_Y(Resultat_C,'C');
+	return Resultat_C.back(); 
 }
 //debit
-int simulate_debit()
+float simulate_debit()
 {
 	//on remplit la matrice Y selon le cas
 	pop_Y(); 
 	// calcul le debit moyen pour ce cas et le stock dans le vecteur resultat
 	Resultat_D.push_back(debit_moyen());
-	save_best_Y(Resultat_D,'D');  
+	save_best_Y(Resultat_D,'D'); 
+	return Resultat_D.back(); 
 }
 int save_best_Y(std::vector<float> A, char val)
 {
@@ -43,13 +45,31 @@ int save_best_Y(std::vector<float> A, char val)
 int full_sim_cout()
 {
 	while(BBU1<4)
-		simulate_cout();
+	{
+		std::cout <<"Cout moyen : config ";
+		std::cout <<"BBU1 [ ";
+		for(int j=0;j<Antenne;j++)
+			std::cout << Y[0][j] << " ";
+		std::cout <<"] BBU2 [ ";
+		for(int j=0;j<Antenne;j++)
+			std::cout << Y[1][j] << " ";
+		std::cout << " ] est de " << simulate_cout() << std::endl;
+	}
 }
 //debit
 int full_sim_debit()
 {
 	while(BBU1<4)
-		simulate_debit();
+	{
+		std::cout <<"Cout moyen : config ";
+		std::cout <<"BBU1 [ ";
+		for(int j=0;j<Antenne;j++)
+			std::cout << Y[0][j] << " ";
+		std::cout <<"] BBU2 [ ";
+		for(int j=0;j<Antenne;j++)
+			std::cout << Y[1][j] << " ";
+		std::cout << " ] est de " << simulate_debit() << std::endl;
+	}
 }
 //affichage resultat
 
@@ -68,8 +88,6 @@ int disp_best_Y()
 //cout
 int disp_res_cout()
 {
-	for(int i=0;i<Resultat_C.size();i++)
-		std::cout <<"Cout moyen de " << i << "est de " << Resultat_C[i] << std::endl;
 	int best=(int)(std::min_element(Resultat_C.begin(),Resultat_C.end()) - Resultat_C.begin());
 	std::cout << "Le meilleur cout est de " << Resultat_C[best] << std::endl;
 	disp_best_Y();
@@ -77,8 +95,6 @@ int disp_res_cout()
 //debit
 int disp_res_debit()
 {
-	for(int i=0;i<3;i++)
-		std::cout <<"Debit moyen est de " << Resultat_D[i] << std::endl;
 	int best=(int)(std::max_element(Resultat_D.begin(),Resultat_D.end()) - Resultat_D.begin());
 	std::cout << "Le meilleur debit est de " << Resultat_D[best] << std::endl;
 	disp_best_Y();
