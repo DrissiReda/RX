@@ -5,7 +5,7 @@ std::array<int, Antenne> nb_user; // nombre d'utilisateur par antenne
 std::array< std::array<int, Antenne>, Antenne > G;// la matrice G
 std::array< std::array<int, Antenne>, BBU > Y; // la matrice qui informe quel RRH est dans quel BBU
 std::array< std::array<int, Antenne>, BBU > best_Y; // la matrice qui stock la meilleure config
-float Cost=0.0;
+float best_R=0.0;
 std::vector<float> Resultat_C; //stock les resultats des simulations cout
 std::vector<float> Resultat_D; //stock les resultats des simulations debit
 int BBU1; //nombre d'antenne dans le 1er BBU
@@ -77,6 +77,7 @@ int pop_Y_2()
 int new_comb(int r)
 {
   std::fill(Y[0].begin(),Y[0].begin()+r, true);
+  pop_Y_2();
   return 0;
 }
 //Renvoie 1 si l'antenne appartient au BBU, 0 sinon

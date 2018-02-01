@@ -26,19 +26,40 @@ int save_best_Y(std::vector<float> A, char val)
 {
 	if(A.size()<2)
 	{
+		std::next_permutation(Y[0].begin(), Y[0].begin()+Antenne);
+		pop_Y_2();
 		best_Y=Y;
+		std::prev_permutation(Y[0].begin(), Y[0].begin()+Antenne);
+		pop_Y_2();
+		best_R=A[0];
 	}
-	switch(val)
-	{
-		case 'C' :
-			if(A.back() < *(A.end()-2))
-				best_Y=Y;
-			break;
-		case 'D' :
-			if(A.back() > *(A.end()-2))
-				best_Y=Y;
-			break;
-	}
+	else
+		switch(val)
+		{
+			case 'C' :
+				if(A.back() < best_R)
+					{
+						std::next_permutation(Y[0].begin(), Y[0].begin()+Antenne);
+						pop_Y_2();
+						best_Y=Y;
+						std::prev_permutation(Y[0].begin(), Y[0].begin()+Antenne);
+						pop_Y_2();
+						best_R=A.back(); 
+						
+					}
+				break;
+			case 'D' :
+				if(A.back() > best_R)
+					{
+						std::next_permutation(Y[0].begin(), Y[0].begin()+Antenne);
+						pop_Y_2();
+						best_Y=Y;
+						std::prev_permutation(Y[0].begin(), Y[0].begin()+Antenne);
+						pop_Y_2();
+						best_R=A.back(); 
+					}
+				break;
+		}
 }
 //Simule tous les cas et stock le resultat dans le vecteur approprie
 //cout

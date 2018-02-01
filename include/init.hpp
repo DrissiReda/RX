@@ -18,7 +18,7 @@ extern std::array<int, Antenne> nb_user;
 extern std::array< std::array<int, Antenne>, Antenne > G;
 extern std::array< std::array<int, Antenne>, BBU > Y;
 extern std::array< std::array<int, Antenne>, BBU > best_Y;
-extern float Cost;
+extern float best_R;
 extern std::vector<float> Resultat_C;
 extern std::vector<float> Resultat_D;
 extern int BBU1;
