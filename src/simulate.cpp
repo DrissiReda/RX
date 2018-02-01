@@ -6,21 +6,21 @@
 float simulate_cout()
 {
 	//on remplit la matrice Y selon le cas
-	pop_Y(); 
+	pop_Y();
 	// calcul le cout moyen pour ce cas et le stock dans le vecteur resultat
-	Resultat_C.push_back(cout_moyen());  
+	Resultat_C.push_back(cout_moyen());
 	save_best_Y(Resultat_C,'C');
-	return Resultat_C.back(); 
+	return Resultat_C.back();
 }
 //debit
 float simulate_debit()
 {
 	//on remplit la matrice Y selon le cas
-	pop_Y(); 
+	pop_Y();
 	// calcul le debit moyen pour ce cas et le stock dans le vecteur resultat
 	Resultat_D.push_back(debit_moyen());
-	save_best_Y(Resultat_D,'D'); 
-	return Resultat_D.back(); 
+	save_best_Y(Resultat_D,'D');
+	return Resultat_D.back();
 }
 int save_best_Y(std::vector<float> A, char val)
 {
@@ -30,7 +30,7 @@ int save_best_Y(std::vector<float> A, char val)
 	}
 	switch(val)
 	{
-		case 'C' : 	
+		case 'C' :
 			if(A.back() < *(A.end()-2))
 				best_Y=Y;
 			break;
@@ -76,13 +76,17 @@ int full_sim_debit()
 //affichage de la meilleure config
 int disp_best_Y()
 {
-	std::cout << "La meilleure config est de " << std::endl;
+	std::cout << "La meilleure config est " << std::endl;
+	std::cout << "RRH  1 2 3 4 5 6" << std::endl;
+	std::cout << "================" << std::endl;
 	for(int i=0;i<BBU;i++)
 	{
+		std::cout << "BBU" << i+1 << " ";
 		for(int j=0;j<Antenne;j++)
 			std::cout << best_Y[i][j] << " ";
 		std::cout << std::endl;
 	}
+	std::cout << std::endl;
 	return 0;
 }
 //cout
@@ -90,6 +94,7 @@ int disp_res_cout()
 {
 	int best=(int)(std::min_element(Resultat_C.begin(),Resultat_C.end()) - Resultat_C.begin());
 	std::cout << "Le meilleur cout est de " << Resultat_C[best] << std::endl;
+	std::cout << std::endl;
 	disp_best_Y();
 }
 //debit
@@ -97,5 +102,6 @@ int disp_res_debit()
 {
 	int best=(int)(std::max_element(Resultat_D.begin(),Resultat_D.end()) - Resultat_D.begin());
 	std::cout << "Le meilleur debit est de " << Resultat_D[best] << std::endl;
+	std::cout << std::endl;
 	disp_best_Y();
 }
